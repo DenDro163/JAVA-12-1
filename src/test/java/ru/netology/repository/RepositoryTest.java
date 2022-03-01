@@ -1,6 +1,10 @@
-package ru.netology;
+package ru.netology.repository;
 
 import org.junit.jupiter.api.Test;
+import ru.netology.domain.Book;
+import ru.netology.domain.Product;
+import ru.netology.domain.Smartphone;
+import ru.netology.repository.Repository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -13,7 +17,7 @@ class RepositoryTest {
     private final Product smartphone2 = new Smartphone(5, "IPhone 11", 55900, "Apple");
 
     @Test
-    public void ShouldTestSaveOneBook() {
+    public void shouldTestSaveOneBook() {
         repo.save(book1);
 
         Product[] expected = new Product[]{book1};
@@ -22,7 +26,7 @@ class RepositoryTest {
     }
 
     @Test
-    public void ShouldTestSaveOneSmartphone() {
+    public void shouldTestSaveOneSmartphone() {
         repo.save(smartphone1);
 
         Product[] expected = new Product[]{smartphone1};
@@ -31,7 +35,7 @@ class RepositoryTest {
     }
 
     @Test
-    public void ShouldTestSaveBookAndSmartphone() {
+    public void shouldTestSaveBookAndSmartphone() {
         repo.save(book1);
         repo.save(smartphone1);
 
@@ -41,8 +45,7 @@ class RepositoryTest {
     }
 
     @Test
-    public void ShouldTestFindZero() {
-        repo.findAll();
+    public void shouldTestFindZero() {
 
         Product[] expected = new Product[]{};
         Product[] actual = repo.findAll();
@@ -50,21 +53,18 @@ class RepositoryTest {
     }
 
     @Test
-    public void ShouldTestFindOneBook() {
+    public void shouldTestFindOneBook() {
         repo.save(book1);
-
-        repo.findAll();
-
+        
         Product[] expected = new Product[]{book1};
         Product[] actual = repo.findAll();
         assertArrayEquals(expected, actual);
     }
 
     @Test
-    public void ShouldTestFindOneSmartphone() {
+    public void shouldTestFindOneSmartphone() {
         repo.save(smartphone1);
 
-        repo.findAll();
 
         Product[] expected = new Product[]{smartphone1};
         Product[] actual = repo.findAll();
@@ -72,11 +72,9 @@ class RepositoryTest {
     }
 
     @Test
-    public void ShouldTestFindBookAndSmartphone() {
+    public void shouldTestFindBookAndSmartphone() {
         repo.save(book1);
         repo.save(smartphone1);
-
-        repo.findAll();
 
         Product[] expected = new Product[]{book1, smartphone1};
         Product[] actual = repo.findAll();
@@ -84,9 +82,8 @@ class RepositoryTest {
     }
 
     @Test
-    public void ShouldTestRemoveBookById() {
+    public void shouldTestRemoveBookById() {
         repo.save(book1);
-
         repo.removeById(1);
 
         Product[] expected = new Product[]{};
@@ -95,9 +92,8 @@ class RepositoryTest {
     }
 
     @Test
-    public void ShouldTestRemoveSmartphoneById() {
+    public void shouldTestRemoveSmartphoneById() {
         repo.save(smartphone1);
-
         repo.removeById(4);
 
         Product[] expected = new Product[]{};
@@ -106,7 +102,7 @@ class RepositoryTest {
     }
 
     @Test
-    public void ShouldTestRemoveBookAndSmartphoneById() {
+    public void shouldTestRemoveBookAndSmartphoneById() {
         repo.save(book1);
         repo.save(book2);
         repo.save(smartphone1);
@@ -121,7 +117,7 @@ class RepositoryTest {
     }
 
     @Test
-    public void ShouldTestRemoveNoId() {
+    public void shouldTestRemoveNoId() {
         repo.save(book1);
         repo.save(book2);
         repo.save(book3);

@@ -1,6 +1,11 @@
-package ru.netology;
+package ru.netology.manager;
 
 import org.junit.jupiter.api.Test;
+import ru.netology.domain.Book;
+import ru.netology.domain.Product;
+import ru.netology.domain.Smartphone;
+import ru.netology.manager.ProductManager;
+import ru.netology.repository.Repository;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -33,7 +38,7 @@ class ProductManagerTest {
     }
 
     @Test
-    public void ShouldTestAddBookAndSmartphone() {
+    public void shouldTestAddBookAndSmartphone() {
         manager.add(book1);
         manager.add(smartphone1);
 
@@ -44,7 +49,7 @@ class ProductManagerTest {
 
 
     @Test
-    public void ShouldTestOneMatchTest() {
+    public void shouldTestOneMatchTest() {
         manager.add(book1);
         manager.add(book2);
         manager.add(smartphone1);
@@ -58,7 +63,7 @@ class ProductManagerTest {
     }
 
     @Test
-    public void ShouldTestNoMatchTest() {
+    public void shouldTestNoMatchTest() {
         manager.add(book1);
         manager.add(book2);
         manager.add(smartphone1);
@@ -72,7 +77,7 @@ class ProductManagerTest {
     }
 
     @Test
-    public void ShouldTestNameMatchTest() {
+    public void shouldTestNameMatchTest() {
         manager.add(book1);
         manager.add(book2);
         manager.add(book3);
